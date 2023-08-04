@@ -12,12 +12,12 @@ EXTRAS = {}
 def _read_file(fname):
     # this_dir = os.path.abspath(os.path.dirname(__file__))
     # with open(os.path.join(this_dir, fname)) as f:
-    with pathlib.Path(fname).open() as fp:
+    with pathlib.Path(fname).open(encoding='utf-8') as fp:
         return fp.read()
 
 
 def _read_install_requires():
-    with pathlib.Path("requirements.txt").open() as fp:
+    with pathlib.Path("requirements.txt").open(encoding='utf-8') as fp:
         return [
             str(requirement) for requirement in pkg_resources.parse_requirements(fp)
         ]
